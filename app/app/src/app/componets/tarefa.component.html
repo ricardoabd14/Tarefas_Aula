@@ -1,0 +1,24 @@
+<div>
+  <h2>Lista de Tarefas</h2>
+  <ul>
+    <li *ngFor="let tarefa of tarefas; let i = index">
+      {{ tarefa }} <button (click)="removerTarefa(i)">Remover</button>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Adicionar Nova Tarefa</h2>
+  <form [formGroup]="tarefaForm" (ngSubmit)="adicionarTarefa()">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" formControlName="titulo">
+    <br>
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" formControlName="descricao"></textarea>
+    <br>
+    <label for="dataVencimento">Data de Vencimento:</label>
+    <input type="date" id="dataVencimento" formControlName="dataVencimento">
+    <br>
+    <button type="submit">Adicionar Tarefa</button>
+  </form>
+</div>

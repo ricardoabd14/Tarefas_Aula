@@ -1,0 +1,37 @@
+<form [formGroup]="clientForm" (ngSubmit)="inserir()">
+  <p>
+    Nome: <input type="text" formControlName="nome" />
+  </p>
+  <p>
+    Telefone <input type="text" formControlName="telefone" />
+  </p>
+  <button type="submit">Enviar</button>
+</form>
+
+
+
+<h2>Listar </h2>
+
+<ul>
+@for (item of clientes; track $index){
+   <li>  {{item.id}} - {{item.nome}} - {{item.telefone}}  </li>
+   <input type="button" value="remover"(click)="remover(item.id)"/>
+
+}
+</ul>
+
+<h2>Tasks</h2>
+
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <label>Title</label>
+  <input type="text" formControlName="title">
+  <label>Description</label>
+  <textarea formControlName="description"></textarea>
+  <label>Due Date</label>
+  <input type="date" formControlName="dueDate">
+  <button type="submit">Add Task</button>
+</form>
+
+
+
+
